@@ -10,7 +10,12 @@ io.on('connection', function(socket){
     socket.on('login', function(data){
         console.log('Client logged-in:\nname:' + data.name);
         socket.name = data.name;
-        io.emit('login', data.name);
+        console.log(data.name);
+        var msg = {
+            name : data.name,
+            count : socket.client.conn.server.clientsCount
+        }
+        io.emit('login', msg);
     });
 
     socket.on('chat', function(data){
@@ -19,9 +24,9 @@ io.on('connection', function(socket){
             from: {
                 name: socket.name,
             },
-            msg: data.msg
+            msg: data.msg,
+            count: socket.client.conn.server.clientsCount
         };
-
         socket.broadcast.emit('chat', msg);
     });
 

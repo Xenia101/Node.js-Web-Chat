@@ -8,6 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Jua|Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Simple Chatting</title>
 
     <style>
@@ -45,7 +48,10 @@
             border-radius: 5px;
             font-family: 'Jua';
         }
-
+        .form-control:focus {
+            border-color: #15B7B9;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(21, 183, 185, 0.6);
+        }
     </style>
   </head>
   <body>
@@ -54,13 +60,15 @@
     </nav>
 
     <div class="container no-padding">
-        <div id="chatLogs" class="p-2"></div>
+        <div id="chatLogs" class="p-1"></div>
 
-        <div class="fixed-bottom">
+        <div class="fixed-bottom p-1">
             <form class="input-group">
-                <input type="text" class="form-control" id="msgForm" aria-describedby="button-addon" required>
+                <input type="text" class="form-control" id="msgForm" aria-describedby="button-addon" placeholder="텍스트를 입력해주세요!" autocomplete="off" required>
                 <div class="input-group-append">
-                    <button type="submit" class="btn upText" id="button-addon">Send</button>
+                    <button type="submit" class="btn upText" id="button-addon">
+                        <i class="fa fa-arrow-circle-up"></i>
+                    </button>
                 </div>
             </form>
         </div>
@@ -78,19 +86,19 @@
             });
 
             socket.on("login", function(data) {
-                $("#chatLogs").append("<div style='background-color:rgb(248, 249, 250);'>새로운 사람이 들어왔습니다!</div>");
+                $("#chatLogs").append("<div class='animated fadeIn' style='background-color:rgba(108, 117, 125,.2);'>새로운 사람이 들어왔습니다!</div>");
                 $("#chatLogs").scrollTop($("#chatLogs").prop('scrollHeight'));
             });
 
             socket.on("chat", function(data) {
-                $("#chatLogs").append("<div style='background-color:rgba(108, 117, 125,.5)'>" + data.msg + "</div>");
+                $("#chatLogs").append("<div class='animated fadeIn' style='background-color:rgb(248, 249, 250)'>" + data.msg + "</div>");
                 $("#chatLogs").scrollTop($("#chatLogs").prop('scrollHeight'));
             });
 
             $("form").submit(function(e) {
                 e.preventDefault();
                 var $msgForm = $("#msgForm");
-                $("#chatLogs").append("<div style='background-color:rgba(21,183,185,.5);'>" + $msgForm.val() + "</div>");
+                $("#chatLogs").append("<div class='animated fadeIn' style='background-color:rgba(21,183,185,.5);'>" + $msgForm.val() + "</div>");
                 $("#chatLogs").scrollTop($("#chatLogs").prop('scrollHeight'));
                 socket.emit("chat", { msg: $msgForm.val() });
                 $msgForm.val("").focus();
@@ -102,10 +110,12 @@
                 for( var i = 0; i < 5; i++ ) {
                     name += possible.charAt(Math.floor(Math.random() * possible.length));
                 }
+                console.log(name);
                 return name;
             }
         });
     </script>
+    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

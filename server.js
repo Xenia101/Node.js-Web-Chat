@@ -8,7 +8,7 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
     socket.on('login', function(data){
-        console.log('Client logged-in:\n name:' + data.name);
+        console.log('Client logged-in:\nname:' + data.name);
         socket.name = data.name;
         io.emit('login', data.name);
     });

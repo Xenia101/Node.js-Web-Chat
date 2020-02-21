@@ -8,9 +8,7 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
     socket.on('login', function(data){
-        console.log('Client logged-in:\nname:' + data.name);
         socket.name = data.name;
-        console.log(data.name);
         var msg = {
             name : data.name,
             count : 'Online ' + socket.client.conn.server.clientsCount
@@ -19,7 +17,6 @@ io.on('connection', function(socket){
     });
 
     socket.on('chat', function(data){
-        console.log('Message %s', data.msg);
         var msg = {
             from: {
                 name: socket.name,

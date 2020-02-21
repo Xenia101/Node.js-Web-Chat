@@ -7,8 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Nanum+Pen+Script&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css?family=Jua|Nanum+Gothic&display=swap" rel="stylesheet">
     <title>Simple Chatting</title>
 
     <style>
@@ -43,8 +42,8 @@
             word-wrap:break-word;
             padding: 10px 10px 10px 10px;
             margin-bottom: 1%;
-            background-color: rgba(0,0,0,.2);
             border-radius: 5px;
+            font-family: 'Jua';
         }
 
     </style>
@@ -61,7 +60,7 @@
             <form class="input-group">
                 <input type="text" class="form-control" id="msgForm" aria-describedby="button-addon" required>
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary" id="button-addon">Send</button>
+                    <button type="submit" class="btn upText" id="button-addon">Send</button>
                 </div>
             </form>
         </div>
@@ -79,19 +78,19 @@
             });
 
             socket.on("login", function(data) {
-                $("#chatLogs").append("<div><strong>새로운 사람이 들어왔습니다!</strong></div>");
+                $("#chatLogs").append("<div style='background-color:rgb(248, 249, 250);'>새로운 사람이 들어왔습니다!</div>");
                 $("#chatLogs").scrollTop($("#chatLogs").prop('scrollHeight'));
             });
 
             socket.on("chat", function(data) {
-                $("#chatLogs").append("<div>" + data.msg + "</div>");
+                $("#chatLogs").append("<div style='background-color:rgba(108, 117, 125,.5)'>" + data.msg + "</div>");
                 $("#chatLogs").scrollTop($("#chatLogs").prop('scrollHeight'));
             });
 
             $("form").submit(function(e) {
                 e.preventDefault();
                 var $msgForm = $("#msgForm");
-                $("#chatLogs").append("<div>" + $msgForm.val() + "</div>");
+                $("#chatLogs").append("<div style='background-color:rgba(21,183,185,.5);'>" + $msgForm.val() + "</div>");
                 $("#chatLogs").scrollTop($("#chatLogs").prop('scrollHeight'));
                 socket.emit("chat", { msg: $msgForm.val() });
                 $msgForm.val("").focus();

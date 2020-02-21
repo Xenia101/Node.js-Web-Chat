@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Simple Chatting</title>
+  </head>
+  <body>
+    <div class="container">
+        <form class="form-inline">
+            <div class="form-group">
+              <label for="msgForm">Message: </label>
+              <input type="text" class="form-control" id="msgForm">
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        <div id="chatLogs"></div>
+    </div>
+    <!-- Optional JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <script>
+        $(function(){
+            var socket = io();
+
+            socket.emit("login", {
+                name: makeRandomName(),
+            });
+
+            socket.on("login", function(data) {
+                $("#chatLogs").append("<div><strong>" + data + "</strong> has joined</div>");
+            });
+
+            socket.on("chat", function(data) {
+                $("#chatLogs").append("<div>" + data.msg + "</div>");
+            });
+
+            $("form").submit(function(e) {
+                e.preventDefault();
+                var $msgForm = $("#msgForm");
+                $("#chatLogs").append("<div>" + $msgForm.val() + "</div>");
+                socket.emit("chat", { msg: $msgForm.val() });
+                $msgForm.val("");
+            });
+
+            function makeRandomName(){
+                var name = "";
+                var possible = "abcdefghijklmnopqrstuvwxyz";
+                for( var i = 0; i < 3; i++ ) {
+                    name += possible.charAt(Math.floor(Math.random() * possible.length));
+                }
+                return name;
+            }
+        });
+    </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

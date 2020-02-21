@@ -13,7 +13,7 @@ io.on('connection', function(socket){
         console.log(data.name);
         var msg = {
             name : data.name,
-            count : socket.client.conn.server.clientsCount
+            count : 'Online ' + socket.client.conn.server.clientsCount
         }
         io.emit('login', msg);
     });
@@ -25,7 +25,7 @@ io.on('connection', function(socket){
                 name: socket.name,
             },
             msg: data.msg,
-            count: socket.client.conn.server.clientsCount
+            count: 'Online ' + socket.client.conn.server.clientsCount
         };
         socket.broadcast.emit('chat', msg);
     });

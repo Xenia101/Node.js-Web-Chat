@@ -60,7 +60,9 @@
     </nav>
 
     <div class="container no-padding">
-        <div id="UserCount"></div>
+        <div class="p-1 text-center">
+            <div id="UserCount" class="badge badge-pill badge-success"></div> 
+        </div>
 
         <div id="chatLogs" class="p-1"></div>
 
@@ -88,7 +90,7 @@
             });
 
             socket.on("login", function(data) {
-                $("#chatLogs").append("<div class='animated fadeIn' style='background-color:rgba(108, 117, 125,.2);'>새로운 사람이 들어왔습니다!</div>");
+                $("#chatLogs").append("<div class='animated fadeIn' style='background-color:rgba(108, 117, 125,.2);'>새로운 유저가 들어왔습니다!</div>");
                 $("#chatLogs").scrollTop($("#chatLogs").prop('scrollHeight'));
                 $("#UserCount").text(data.count);
             });

@@ -9,6 +9,8 @@ Node.js Chat Web Application with socket.io
 
 ## Example
 
+- **HTML**
+
 ```html
 <div id="chatLogs" class="p-1"></div>
 
@@ -23,6 +25,8 @@ Node.js Chat Web Application with socket.io
   </form>
 </div>
 ```
+
+- **Node.js**
 
 ```javascript
 var app = require('express')();

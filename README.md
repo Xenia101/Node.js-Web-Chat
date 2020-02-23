@@ -48,7 +48,7 @@ app.get('/', function(req, res){
 
 ```javascript
 io.on('connection', function(socket){
-...
+    ...
     socket.on('login', function(data){
         var msg = {
             mag : data.msg

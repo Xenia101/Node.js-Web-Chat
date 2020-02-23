@@ -3,6 +3,12 @@
 Node.js Chat Web Application with socket.io
 
 
+## Execution / Test Environment
+
+- Window 10
+
+- Node.js **latest version**
+
 ## Example
 
 <p align=center>

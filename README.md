@@ -9,6 +9,18 @@ Node.js Chat Web Application with socket.io
 
 ## Example
 
+- **Node.js**
+
+```javascript
+var app = require('express')();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+app.get('/', function(req, res){
+    res.sendFile(__dirname + '/index.html');
+});
+```
+
 - **HTML**
 
 ```html
@@ -24,18 +36,6 @@ Node.js Chat Web Application with socket.io
     </div>
   </form>
 </div>
-```
-
-- **Node.js**
-
-```javascript
-var app = require('express')();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
-
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
-});
 ```
 
 <p align=center>

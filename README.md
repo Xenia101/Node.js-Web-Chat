@@ -38,6 +38,8 @@ app.get('/', function(req, res){
 </div>
 ```
 
+- **View**
+
 <p align=center>
   <img width="300px" src="https://github.com/Xenia101/Node.js-Web-Chat/blob/master/img/image.gif?raw=true">
 </p>

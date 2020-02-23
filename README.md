@@ -47,10 +47,16 @@ app.get('/', function(req, res){
 - Online User Count
 
 ```javascript
-var msg = {
-    mag : data.msg
-    count : socket.client.conn.server.clientsCount
-    }
-    
-io.emit('', msg)
+io.on('connection', function(socket){
+...
+    socket.on('login', function(data){
+        var msg = {
+            mag : data.msg
+            count : socket.client.conn.server.clientsCount
+            }
+
+        io.emit('', msg)
+        }
+    ...
+});
 ```

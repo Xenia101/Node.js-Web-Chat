@@ -2,7 +2,6 @@
 
 Node.js Chat Web Application with socket.io
 
-
 ## Execution / Test Environment
 
 - Window 10

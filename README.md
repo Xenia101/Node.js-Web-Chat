@@ -43,3 +43,14 @@ app.get('/', function(req, res){
 <p align=center>
   <img width="300px" src="https://github.com/Xenia101/Node.js-Web-Chat/blob/master/img/image.gif?raw=true">
 </p>
+
+- Online User Count
+
+```javascript
+var msg = {
+    mag : data.msg
+    count : socket.client.conn.server.clientsCount
+    }
+    
+io.emit('', msg)
+```

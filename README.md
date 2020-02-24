@@ -9,7 +9,7 @@ Node.js Chat Web Application with socket.io
 
 ## Example
 
-- **Node.js**
+- **Message Show**
 
 ```javascript
 // BackEnd
@@ -24,8 +24,6 @@ app.get('/', function(req, res){
 // FrontEnd
 $("#chatLogs").append("<div class='animated fadeIn' style='background-color:rgb(248, 249, 250)'>" + data.msg + "</div>");
 ```
-
-- **HTML**
 
 ```html
 <div id="chatLogs" class="p-1"></div>
@@ -42,13 +40,7 @@ $("#chatLogs").append("<div class='animated fadeIn' style='background-color:rgb(
 </div>
 ```
 
-- **View**
-
-<p align=center>
-  <img width="300px" src="https://github.com/Xenia101/Node.js-Web-Chat/blob/master/img/image.gif?raw=true">
-</p>
-
-- Online User Count
+- **Online User Count**
 
 ```html
 <div class="p-1 text-center">
@@ -74,3 +66,9 @@ io.on('connection', function(socket){
 // FrontEnd
 $("#UserCount").text(data.count);
 ```
+
+- **View**
+
+<p align=center>
+  <img width="300px" src="https://github.com/Xenia101/Node.js-Web-Chat/blob/master/img/image.gif?raw=true">
+</p>

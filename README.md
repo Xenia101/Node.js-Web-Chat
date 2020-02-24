@@ -12,6 +12,7 @@ Node.js Chat Web Application with socket.io
 - **Node.js**
 
 ```javascript
+// BackEnd
 var app = require('express')();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
@@ -19,6 +20,9 @@ var io = require('socket.io')(server);
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
+
+// FrontEnd
+$("#chatLogs").append("<div class='animated fadeIn' style='background-color:rgb(248, 249, 250)'>" + data.msg + "</div>");
 ```
 
 - **HTML**
@@ -54,7 +58,6 @@ app.get('/', function(req, res){
 
 ```javascript
 // BackEnd
-
 io.on('connection', function(socket){
     ...
     socket.on('', function(data){
@@ -69,6 +72,5 @@ io.on('connection', function(socket){
 });
 
 // FrontEnd
-
 $("#UserCount").text(data.count);
 ```

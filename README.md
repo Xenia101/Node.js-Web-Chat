@@ -1,5 +1,10 @@
 # Node.js Web Chat
 
+<p align=center>
+  <img width="450px" src="https://github.com/Xenia101/Node.js-Web-Chat/blob/master/img/banner.png?raw=true">
+</p>
+
+
 Node.js Chat Web Application with socket.io
 
 Designed by XENIA **Bootstrap4**

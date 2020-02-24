@@ -46,7 +46,15 @@ app.get('/', function(req, res){
 
 - Online User Count
 
+```html
+<div class="p-1 text-center">
+    <div id="UserCount" class="badge badge-pill badge-success"></div> 
+</div>
+```
+
 ```javascript
+// BackEnd
+
 io.on('connection', function(socket){
     ...
     socket.on('', function(data){
@@ -59,4 +67,8 @@ io.on('connection', function(socket){
         }
     ...
 });
+
+// FrontEnd
+
+$("#UserCount").text(data.count);
 ```

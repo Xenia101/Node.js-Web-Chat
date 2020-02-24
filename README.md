@@ -2,6 +2,8 @@
 
 Node.js Chat Web Application with socket.io
 
+Designed by XENIA **Bootstrap4**
+
 ## Execution / Test Environment
 
 - Window 10

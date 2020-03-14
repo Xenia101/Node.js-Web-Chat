@@ -78,4 +78,5 @@ $("#UserCount").text(data.count);
 
 <p align=center>
   <img width="300px" src="https://github.com/Xenia101/Node.js-Web-Chat/blob/master/img/image.gif?raw=true">
+  <img width="300px" src="https://github.com/Xenia101/Node.js-Web-Chat/blob/master/img/img2.gif?raw=true">
 </p>

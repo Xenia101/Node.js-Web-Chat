@@ -11,7 +11,7 @@ Designed by XENIA **Bootstrap4**
 
 ## Execution / Test Environment
 
-- Window 10
+- Windows 10
 - Node.js **latest version**
 
 ## Example

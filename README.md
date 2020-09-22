@@ -1,7 +1,7 @@
 # Node.js Web Chat
 
 <p align=center>
-  <img width="120px" src="https://github.com/Xenia101/Node.js-Web-Chat/blob/master/img/chatting.png?raw=true">
+  <img width="200px" src="https://github.com/Xenia101/Node.js-Web-Chat/blob/master/img/chatting.png?raw=true">
 </p>
 
 

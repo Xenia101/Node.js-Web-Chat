@@ -1,5 +1,3 @@
-# Node.js Web Chat
-
 <p align=center>
   <img src="https://github.com/Xenia101/Node.js-Web-Chat/blob/master/img/logo-banner.png?raw=true">
 </p>
